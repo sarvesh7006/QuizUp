@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>QuizUp Lite</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- CONFETTI LAYER -->
+  <div class="confetti-container"></div>
+
+  <!-- ===== HOME SCREEN ===== -->
+  <div id="home-screen" class="screen">
+    <div class="home-header">
+      <div class="home-logo-box">
+        <h1>QUIZUP LITE</h1>
+      </div>
+      <button class="login-btn">LOGIN / PROFILE</button>
+    </div>
+
+    <div class="home-hero">
+      <h2>Welcome to QuizUp Lite:<br>Challenge the Sim!</h2>
+      <p>Test your knowledge in fast-paced duels across<br>Movies, Series, and Games. Are you ready?</p>
+    </div>
+
+    <div class="category-grid">
+      <div class="cat-card movies" data-cat="movies">
+        <div class="cat-card-emoji">🎬</div>
+        <h3>MOVIES</h3>
+        <p>Lights, Camera, Action! Prove your film buff status.</p>
+      </div>
+      <div class="cat-card series" data-cat="series">
+        <div class="cat-card-emoji">📺</div>
+        <h3>SERIES</h3>
+        <p>From sitcoms to dramas, how well do you know your shows?</p>
+      </div>
+      <div class="cat-card games" data-cat="games">
+        <div class="cat-card-emoji">🎮</div>
+        <h3>GAMES</h3>
+        <p>Level up your knowledge! Are you the ultimate gamer?</p>
+      </div>
+    </div>
+
+    <button class="start-btn" id="start-btn">START PLAYING</button>
+
+    <div class="home-footer">
+      <div class="social-icons">
+        <span>𝕏</span>
+        <span>💬</span>
+        <span>📷</span>
+      </div>
+      <p>© 2026 QuizUp Lite. All rights reserved. Powered by QuizUp Lite.</p>
+    </div>
+  </div>
+
+  <!-- ===== GAME SCREEN ===== -->
+  <div id="game-screen" class="screen">
+    <div class="game-header">
+      <div class="game-logo">
+        <span>🥣</span>
+        <div class="game-logo-text">QuizUp<br>Lite</div>
+      </div>
+      <div class="players-row">
+        <div class="player-info">
+          <div class="player-avatar you">🥣</div>
+          <div class="player-label">You</div>
+          <div class="player-score" id="you-score">You: 0</div>
+        </div>
+        <div class="player-info">
+          <div class="player-avatar opp">🥣</div>
+          <div class="player-label" id="opp-label">Opponent</div>
+          <div class="player-score" id="opp-score">Opp: 0</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="progress-bars">
+      <div class="progress-track">
+        <div class="progress-fill you" id="you-bar" style="width:0%"></div>
+      </div>
+      <div class="progress-track">
+        <div class="progress-fill opp" id="opp-bar" style="width:0%"></div>
+      </div>
+    </div>
+
+    <div class="question-box">
+      <div class="question-meta" id="q-meta">Question 1 / 10</div>
+      <div class="question-text" id="q-text">Loading question...</div>
+    </div>
+
+    <div class="options-grid">
+      <button class="option-btn" id="opt-0"></button>
+      <button class="option-btn" id="opt-1"></button>
+      <button class="option-btn" id="opt-2"></button>
+      <button class="option-btn" id="opt-3"></button>
+    </div>
+
+    <div class="timer-section">
+      <div class="timer-ring">
+        <svg width="90" height="90" viewBox="0 0 90 90">
+          <circle class="track" cx="45" cy="45" r="35" />
+          <circle class="fill" cx="45" cy="45" r="35" stroke-dasharray="220" stroke-dashoffset="0" />
+        </svg>
+        <div class="timer-num" id="timer-num">10s</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== RESULT SCREEN ===== -->
+  <div id="result-screen" class="screen">
+    <div class="result-banner">
+      <div class="result-title" id="result-title">YOU WIN!</div>
+    </div>
+
+    <div class="result-body">
+      <div class="versus-row">
+        <div class="result-player">
+          <div class="result-avatar you">🏆</div>
+          <div class="result-player-name">YOU</div>
+          <div class="result-player-score" id="final-you-score">0</div>
+        </div>
+
+        <div class="vs-details">
+          <div class="vs-icons">✅ / ❌</div>
+          <div class="vs-text" id="accuracy-text">0 Correct / 0 Incorrect</div>
+        </div>
+
+        <div class="result-player">
+          <div class="result-avatar opp">🤖</div>
+          <div class="result-player-name" id="result-opp-name">OPPONENT</div>
+          <div class="result-player-score" id="final-opp-score">0</div>
+        </div>
+      </div>
+
+      <div class="highscore-box">
+        <span>⭐</span>
+        <div class="highscore-text">
+          <strong id="highscore-val">HIGH SCORE: 0</strong>
+          <small id="highscore-note">(Saved from localStorage)</small>
+        </div>
+      </div>
+
+      <div class="result-btns">
+        <button class="res-btn play-again" id="play-again-btn">PLAY AGAIN</button>
+        <button class="res-btn change-cat" id="change-cat-btn">CHANGE CATEGORY</button>
+      </div>
+    </div>
+
+    <div class="result-footer">
+      QuizUp Lite • Fast-paced, frontend-only quiz • Movies, Series, Games<br>
+      <small>Attributed by QuizUp</small>
+    </div>
+  </div>
+
+  <script src="questions.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
